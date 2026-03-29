@@ -43,7 +43,6 @@ private:
     QString formatNumber(double value) const;
     void commitCurrentNumber();
     void updateExpressionDisplay();
-    QVector<Token> tokenize() const;
     double evaluate(const QVector<Token> &tokens, bool &ok) const;
 
     // Shunting-yard internals

@@ -52,8 +52,7 @@ void CalculatorEngine::updateExpressionDisplay()
 {
     QString expr;
     for (const auto &tok : m_tokens) {
-        if (!expr.isEmpty() && tok.type != Token::RightParen
-            && (expr.isEmpty() || expr.back() != '(')) {
+        if (!expr.isEmpty() && tok.type != Token::RightParen && expr.back() != '(') {
             expr += " ";
         }
         if (tok.type == Token::LeftParen && !expr.isEmpty() && expr.back() != ' ') {
@@ -343,7 +342,7 @@ void CalculatorEngine::percentage()
 int CalculatorEngine::precedence(const QString &op) const
 {
     if (op == "+" || op == "-") return 1;
-    if (op == "×" || op == "*" || op == "÷" || op == "/") return 2;
+    if (op == "×" || op == "÷") return 2;
     return 0;
 }
 
@@ -356,8 +355,8 @@ double CalculatorEngine::applyOp(const QString &op, double a, double b, bool &ok
 {
     if (op == "+") return a + b;
     if (op == "-") return a - b;
-    if (op == "×" || op == "*") return a * b;
-    if (op == "÷" || op == "/") {
+    if (op == "×") return a * b;
+    if (op == "÷") {
         if (b == 0) { ok = false; return 0; }
         return a / b;
     }

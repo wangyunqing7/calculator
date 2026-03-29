@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 
 Window {
     id: root
@@ -93,7 +94,7 @@ Window {
             }
         }
 
-        Grid {
+        GridLayout {
             id: buttonGrid
             width: parent.width
             columns: 4
@@ -104,11 +105,11 @@ Window {
 
             CalcButton { text: "AC"; buttonColor: "#a5a5a5"; onClicked: calculator.clear() }
             CalcButton { text: "CE"; buttonColor: "#a5a5a5"; onClicked: calculator.clearEntry() }
-            CalcButton { text: "("; buttonColor: "#a5a5a5"; onClicked: calculator.inputParen("(") }
-            CalcButton { text: ")"; buttonColor: "#a5a5a5"; onClicked: calculator.inputParen(")") }
-
             CalcButton { text: "%"; buttonColor: "#a5a5a5"; onClicked: calculator.percentage() }
             CalcButton { text: "⌫"; buttonColor: "#a5a5a5"; onClicked: calculator.backspace() }
+
+            CalcButton { text: "("; buttonColor: "#a5a5a5"; onClicked: calculator.inputParen("(") }
+            CalcButton { text: ")"; buttonColor: "#a5a5a5"; onClicked: calculator.inputParen(")") }
             CalcButton { text: "±"; buttonColor: "#505050"; onClicked: calculator.toggleSign() }
             CalcButton { text: "÷"; buttonColor: "#ff9f0a"; onClicked: calculator.inputOperator("÷") }
 
@@ -127,8 +128,7 @@ Window {
             CalcButton { text: "3"; buttonColor: "#505050"; onClicked: calculator.inputDigit("3") }
             CalcButton { text: "+"; buttonColor: "#ff9f0a"; onClicked: calculator.inputOperator("+") }
 
-            CalcButton { text: "±"; buttonColor: "#505050"; onClicked: calculator.toggleSign() }
-            CalcButton { text: "0"; buttonColor: "#505050"; onClicked: calculator.inputDigit("0") }
+            CalcButton { text: "0"; buttonColor: "#505050"; onClicked: calculator.inputDigit("0"); Layout.columnSpan: 2; Layout.fillWidth: true }
             CalcButton { text: "."; buttonColor: "#505050"; onClicked: calculator.inputDecimal() }
             CalcButton { text: "="; buttonColor: "#ff9f0a"; onClicked: calculator.calculate() }
         }
@@ -139,8 +139,9 @@ Window {
         property color buttonColor: "#505050"
         signal clicked()
 
-        width: buttonGrid.btnWidth
-        height: buttonGrid.btnHeight
+        Layout.preferredWidth: buttonGrid.btnWidth
+        Layout.preferredHeight: buttonGrid.btnHeight
+        Layout.fillWidth: true
         radius: 10
         color: mouseArea.pressed ? Qt.lighter(buttonColor, 1.3) : buttonColor
 
