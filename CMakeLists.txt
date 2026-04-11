@@ -9,9 +9,8 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-find_package(Qt5 5.15 REQUIRED COMPONENTS
+find_package(Qt6 6.2 REQUIRED COMPONENTS
     Quick
-    Widgets
 )
 
 file(GLOB_RECURSE SOURCES
@@ -27,6 +26,5 @@ add_executable(calculator_app
 
 target_link_libraries(calculator_app
     PRIVATE
-    Qt5::Quick
-    Qt5::Widgets
+    Qt6::Quick
 )

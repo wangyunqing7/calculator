@@ -1,9 +1,9 @@
 # Calculator
 
-一款基于 Qt 5 / QML 开发的桌面计算器应用，采用简洁的深色主题 UI，灵感来源于 iOS 计算器。
+一款基于 Qt 6 / QML 开发的桌面计算器应用，采用简洁的深色主题 UI，灵感来源于 iOS 计算器。
 
 ![C++17](https://img.shields.io/badge/C%2B%2B-17-blue)
-![Qt](https://img.shields.io/badge/Qt-5.15-green)
+![Qt](https://img.shields.io/badge/Qt-6.2%2B-green)
 ![CMake](https://img.shields.io/badge/CMake-3.16%2B-orange)
 
 ## 功能特性
@@ -32,7 +32,7 @@ src/
 
 ## 环境要求
 
-- **Qt 5.15+** (模块: `Quick`, `Widgets`)
+- **Qt 6.2+** (模块: `Quick`)
 - **CMake 3.16+**
 - 支持 C++17 的编译器 (GCC 7+、Clang 5+、MSVC 2017+)
 
